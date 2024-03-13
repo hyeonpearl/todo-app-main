@@ -59,14 +59,14 @@ main {
   align-items: center;
   flex-direction: column;
 
-  > header {
+  header {
     width: 100%;
     margin: 100px 0 50px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    > #theme-icon {
+    #theme-icon {
       cursor: pointer;
     }
   }
@@ -111,21 +111,20 @@ main {
   padding: 16px;
   box-sizing: border-box;
   border-radius: 5px;
-  margin-bottom: 20px;
 
-  > .todo {
+  .todo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 
-    > label {
+    label {
       display: inherit;
       align-items: center;
 
-      > input {
-        -webkit-appearance: none;
+      input {
+        appearance: none;
         border: 1px solid var(--dark-grayish-blue);
         width: 24px;
         height: 24px;
@@ -133,19 +132,19 @@ main {
         margin-right: 10px;
         cursor: pointer;
       }
-      > input:checked {
+      input:checked {
         background: url('../images/icon-check.svg'), var(--check-bg);
         background-repeat: no-repeat;
         background-position: center;
         border: none;
       }
-      > input:checked ~ .todo-content {
+      input:checked ~ .todo-content {
         text-decoration: line-through;
         color: var(--light-grayish-blue);
       }
     }
 
-    > .delete {
+    .delete {
       visibility: hidden;
       background: url(../images/icon-cross.svg) no-repeat;
       width: 18px;
@@ -157,20 +156,68 @@ main {
     margin-bottom: 0;
   }
   .todo:hover {
-    > .delete {
+    .delete {
       visibility: visible;
     }
   }
+  .todo.hidden {
+    display: none;
+  }
 }
 
-.hidden {
-  display: none;
+#todo-control {
+  display: flex;
+  flex: 3;
+  align-items: center;
+  background: white;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: 0 0 5px;
+  border-top: 1px solid var(--light-gray);
+  font-size: 14px;
+  font-weight: 600;
+
+  #todo-count {
+    flex: 1;
+    color: var(--dark-grayish-blue);
+    font-weight: 400;
+  }
+  #todo-state {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    color: var(--dark-grayish-blue);
+
+    input[type='radio'] {
+      display: none;
+    }
+    input[type='radio']:checked + label {
+      color: var(--blue);
+    }
+    label:hover {
+      color: var(--very-dark-grayish-blue);
+      cursor: pointer;
+    }
+  }
+  #todo-clear {
+    flex: 1;
+    text-align: right;
+    color: var(--dark-grayish-blue);
+    cursor: pointer;
+  }
+  #todo-clear:hover {
+    color: var(--very-dark-grayish-blue);
+  }
 }
+
 .attribution {
+  position: absolute;
+  bottom: 1rem;
   font-size: 11px;
   text-align: center;
 
-  > a {
+  a {
     color: hsl(228, 45%, 44%);
   }
 }

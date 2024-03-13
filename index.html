@@ -38,6 +38,21 @@
       </form>
 
       <ul id="todo-list"></ul>
+
+      <div id="todo-control">
+        <div id="todo-count"><span>0</span> items left</div>
+        <div id="todo-state">
+          <input type="radio" name="state" id="all" checked />
+          <label for="all">All</label>
+
+          <input type="radio" name="state" id="active" />
+          <label for="active">Active</label>
+
+          <input type="radio" name="state" id="completed" />
+          <label for="completed">Completed</label>
+        </div>
+        <span id="todo-clear">Clear Completed</span>
+      </div>
     </main>
 
     <div class="attribution">
