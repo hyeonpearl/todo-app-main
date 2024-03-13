@@ -91,18 +91,25 @@ document.querySelectorAll('#todo-state input').forEach(radio => {
     if (state === 'all') {
       document.querySelectorAll('.todo').forEach(item => {
         item.classList.remove('hidden');
-        updateCount();
       });
+      updateCount();
     } else if (state === 'active') {
       document.querySelectorAll('.todo:not(.completed)').forEach(item => {
         item.classList.remove('hidden');
-        updateCount();
       });
+      updateCount();
     } else if (state === 'completed') {
       document.querySelectorAll('.todo.completed').forEach(item => {
         item.classList.remove('hidden');
         updateCount();
       });
+      updateCount();
     }
   });
+});
+
+// Clear Completed
+document.querySelector('#todo-clear').addEventListener('click', () => {
+  document.querySelectorAll('.completed').forEach(el => el.remove());
+  updateCount();
 });
